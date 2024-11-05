@@ -1,2 +1,3 @@
-# gym-app-landingpage
- SvelteKit & TailwindCSS Landing Page
+TaskEasy Landing Page 
+
+Does not have platform login links need to add that in v1.1
