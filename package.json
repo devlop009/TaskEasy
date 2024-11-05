@@ -1,6 +1,6 @@
 {
-	"name": "gym-app-landingpage",
-	"version": "0.0.1",
+	"name": "TaskEasy",
+	"version": "1",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
