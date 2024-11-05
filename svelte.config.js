@@ -4,7 +4,7 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 const config = {
   kit: {
     adapter: adapter({
-      runtime: 'nodejs18.20.4
+      runtime: 'nodejs18.20.4'
     })
   },
   preprocess: vitePreprocess()
