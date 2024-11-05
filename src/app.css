@@ -24,7 +24,8 @@ span {
 
 .bgGrid {
     background-size: 40px 40px;
-    background-image: linear-gradient(to right, grey 1px, transparent 1px), linear-gradient(to bottom, grey 1px, transparent 1px);
+    background-image: linear-gradient(to right, grey 2px, transparent 2px), linear-gradient(to bottom, grey 1px, transparent 1px);
+    
 }
 
 button,
@@ -35,13 +36,13 @@ button,
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: white;
+    background-color: white; /* Keeps button background white by default */
     cursor: pointer;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
 }
 
 button:hover {
-    border-color: #646cff;
+    border-color: #059669; /* Emerald-600 */
 }
 
 button:focus,
@@ -49,27 +50,27 @@ button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-
 .specialBtn {
-    border-color: #646cff;
+    border-color: #059669; /* Emerald-600 */
 }
 
 .specialBtnDark {
-    background: #646cff;
+    background: #059669; /* Emerald-600 */
     color: white;
 }
 
 .specialBtn:hover {
-    border-color: blue;
+    border-color: #047857; /* Darker emerald for hover effect */
 }
 
 .dropShadow {
-    filter: drop-shadow(-10.8923px 14.523px 35.0973px rgba(29, 140, 242, 0.2));
+    filter: drop-shadow(-10.8923px 14.523px 35.0973px rgba(29, 140, 242, 0.2)); /* This can remain as is */
 }
 
 .fadeIn {
     animation: fadeIn 300ms ease-in forwards;
 }
+
 
 @keyframes fadeIn {
     from {

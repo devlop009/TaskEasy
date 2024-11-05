@@ -1,81 +1,84 @@
 <script>
-    import SectionWrapper from "./SectionWrapper.svelte";
-    let faqs = [
-        {
-            question: "What is Swoley Moley?",
-            ans: "Swoley Moley is a fun fitness app designed to make your workouts enjoyable by incorporating interactive games and challenges.",
-        },
-        {
-            question: "How do I download Swoley Moley?",
-            ans: "You can download Swoley Moley from the App Store (for iOS) or Google Play Store (for Android) on your mobile device.",
-        },
-        {
-            question: "Is Swoley Moley free to use?",
-            ans: "Yes, Swoley Moley offers a free version with basic features. There is also a premium subscription that unlocks additional games and advanced workout tracking.",
-        },
-        {
-            question: "What types of workouts does Swoley Moley offer?",
-            ans: "Swoley Moley offers a variety of workouts, including cardio, strength training, and flexibility exercises. The workouts are designed to be engaging and entertaining.",
-        },
-        {
-            question: "Can I connect Swoley Moley to my fitness tracker?",
-            ans: "Yes, Swoley Moley supports integration with popular fitness trackers, allowing you to sync your workout data and track your progress seamlessly.",
-        },
-        {
-            question: "Are there multiplayer features in Swoley Moley?",
-            ans: "Yes, Swoley Moley includes multiplayer challenges, allowing you to compete with friends or join group workouts for a more interactive and social experience.",
-        },
-        {
-            question: "How does Swoley Moley motivate users to stay active?",
-            ans: "Swoley Moley employs a reward system, where users earn points and achievements for completing workouts. These rewards can be used to unlock new levels, challenges, and in-app content.",
-        },
-        {
-            question: "Can I customize my workouts in Swoley Moley?",
-            ans: "Absolutely! Swoley Moley allows users to customize their workouts based on personal preferences, fitness goals, and available equipment.",
-        },
-        {
-            question: "Is there a beginner-friendly mode in Swoley Moley?",
-            ans: "Yes, Swoley Moley offers a beginner-friendly mode with easier exercises and lower intensity workouts, making it suitable for users at various fitness levels.",
-        },
-        {
-            question:
-                "How often should I use Swoley Moley for optimal results?",
-            ans: "The frequency of Swoley Moley workouts depends on your fitness goals. It is recommended to engage in at least 3-5 sessions per week for noticeable results.",
-        },
-    ];
+  import SectionWrapper from "./SectionWrapper.svelte";
+
+  let faqs = [
+    {
+      question: "How do you determine which tasks to automate?",
+      ans: " We conducts an assessment of your operations to identify repetitive tasks that can be automated. This ensures our solutions  maximize efficiency and save time for your business.",
+    },
+    {
+      question: "Do you provide maintenance and upgrades for the systems?",
+      ans: "Yes, we offer ongoing maintenance for all workflows to ensure optimal performance and address any issues that may arise. Additionally, as teams use the systems and provide feedback, we continually improve them to enhance functionality and efficiency.",
+    },
+    {
+      question: "Is pricing based on hourly rates or a fixed project fee?",
+      ans: "We charge a fixed price for each project, based on the specific requirements and scope of the work. This allows for clear, upfront pricing with no surprises, ensuring that you know the total investment from the start.",
+    },
+    {
+      question:
+        "What if our employees don’t know how to use the custom systems?",
+      ans: "We includes training with each custom system at no additional cost. Our sessions ensure that your team is well-prepared to use the systems effectively.",
+    },
+  ];
+
+  let openIndex = null;
+
+  function toggleFaq(index) {
+    openIndex = openIndex === index ? null : index;
+  }
 </script>
 
 <SectionWrapper id="faqs">
+  <div class="flex flex-col items-center justify-center py-20">
     <div
-        class="flex flex-col gap-10 sm:gap-14 md:gap-24 py-20 flex-1 items-center justify-center"
+      class="w-full max-w-[65%] flex flex-col gap-10 sm:gap-14 md:gap-24 px-4"
     >
-        <div class="flex flex-col gap-2">
-            <p class="opacity-60 text-base sm:text-lg md:text-xl text-center">
-                For all your questions, qualms & queries
-            </p>
-            <h3
-                class="text-4xl sm:text-5xl md:text-6xl max-w-[1000px] mx-auto w-full font-semibold text-center"
+      <div class="flex flex-col gap-2 text-center">
+        <h3 class="text-4xl sm:text-5xl md:text-6xl font-semibold">
+          Frequently Asked Questions
+        </h3>
+      </div>
+
+      <div class="flex flex-col gap-4 w-full">
+        {#each faqs as faq, index}
+          <div class="border-b border-gray-300 pb-4">
+            <button
+              type="button"
+              on:click={() => toggleFaq(index)}
+              aria-expanded={openIndex === index}
+              aria-controls="faq-content-{index}"
+              class="w-full flex items-center justify-between py-4 px-6 text-left text-lg font-medium text-white-400 transition-colors
+                hover:border hover:border-white hover:bg-transparent"
             >
-                Frequently Asked Questions
-            </h3>
-        </div>
-        <div class="flex flex-col gap-8 sm:gap-10 md:gap-14 w-full">
-            {#each faqs as faq}
-                <div
-                    class="flex flex-col gap-2 text-left max-w-[800px] w-full mx-auto relative p-4 px-6"
-                >
-                    <div
-                        class="absolute top-0 left-0 w-1/3 h-[1px] bg-slate-950 -translate-x-4"
-                    ></div>
-                    <div
-                        class="absolute top-0 left-0 h-2/3 w-[1px] bg-slate-950 -translate-y-4"
-                    ></div>
-                    <h4 class="text-lg sm:text-xl md:text-2xl pt-2">
-                        {faq.question}
-                    </h4>
-                    <p class="pl-2">{faq.ans}</p>
-                </div>
-            {/each}
-        </div>
+              <span class="text-xl">{faq.question}</span>
+              <svg
+                class="w-6 h-6 transition-transform duration-200"
+                style="transform: rotate({openIndex === index ? 180 : 0}deg);"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="faq-content-{index}"
+              class="overflow-hidden transition-[max-height] duration-300"
+              style="max-height: {openIndex === index ? '1000px' : '0'};"
+            >
+              <p class="pl-6 pt-4 text-white-600 text-sm">{faq.ans}</p>
+              <!-- Increased padding here and reduced font size -->
+            </div>
+          </div>
+        {/each}
+      </div>
     </div>
+  </div>
 </SectionWrapper>
